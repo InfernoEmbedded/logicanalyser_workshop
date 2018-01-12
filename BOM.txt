@@ -1,0 +1,25 @@
+Note: These are examples of the hardware only, you should shop around for the best price.
+
+Breadboard Kit:
+https://www.aliexpress.com/item/MB102-Breadboard-power-module-MB-102-830-points-Solderless-Prototype-Bread-board-kit-65-Flexible-jumper/32690555189.html
+
+Logic Analyzer:
+https://www.aliexpress.com/item/New-USB-Logic-SCM-24MHz-8-Channel-Logic-Analyzer-Debugger-for-ARM-FPGA-High-Quality/32802074523.html
+
+USB to TTL Serial Adapter:
+https://www.aliexpress.com/item/1pcs-CP2102-module-USB-to-TTL-serial-UART-STC-download-cable-PL2303-Super-Brush-line-upgrade/32694152202.html
+
+SWD Programmer:
+https://www.aliexpress.com/item/1PCS-ST-LINK-Stlink-ST-Link-V2-Mini-STM8-STM32-Simulator-Download-Programmer-Programming-With-Cover/32792513237.html
+
+STM32F103C8T6 Development Board (AKA Bluepill):
+https://www.aliexpress.com/item/1pcs-STM32F103C8T6-ARM-STM32-Minimum-System-Development-Board-Module-For-arduino/32748850901.html
+
+Test Probes:
+https://www.aliexpress.com/item/10pcs-in-1-Analyzer-Test-Clips-High-Efficiency-Logic-Analyzer-Cable-Gripper-Probe-Test-Hook-Kit/32798615795.html
+
+4.7kOhm Resistor:
+https://www.aliexpress.com/item/100pcs-4-7K-ohm-1-4W-4K7-Metal-film-resistor-1-New-original-free-shipping/32844849272.html
+
+DS18B20 Waterproof Temperature Sensor:
+https://www.aliexpress.com/item/1pcs-DS18B20-waterproof-1-meters-temperature-probe-temperature-sensor-new-in-stock-new-Free-shipping/32845484802.html
