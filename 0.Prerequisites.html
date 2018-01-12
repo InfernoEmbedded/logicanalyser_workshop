@@ -1,0 +1,57 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h1>Prerequisites</h1>
+	<h2>Knowledge Prerequisites</h2>
+	<ul>
+		<li>A basic understanding of C/C++. You won't need to write new code, but you should be able to understand and make changes to existing code.</li>
+		<li>How to use a breadboard for prototyping. If you haven't used a breadboard before, you can read up on how to use them on <a
+			href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard">Adafruit</a>, paying attention to how they are internally wired.
+		</li>
+		<li>An understanding of the 1Wire protocol. If you are not familiar with in, this tutorial provides a good description (flash required):
+			<a href="https://www.maximintegrated.com/en/products/1-wire/flash/overview/">https://www.maximintegrated.com/en/products/1-wire/flash/overview/</a></li>
+	</ul>
+	<h2>Software Prerequisites</h2>
+	<p>The following packages are required:
+	<ul>
+		<li><a href="https://github.com/texane/stlink">STLink</a></li>
+		<li><a href="https://sigrok.org/">Sigrok/Pulseview</a></li>
+	</ul>
+	</p>
+
+	<h2>Fedora Setup</h2>
+	<ul>
+		<li>Install the required packages: <code>sudo dnf install uucp stlink pulseview sigrok-firmware-fx2lafw</code></li>
+		<li>Add yourself to the 'dialout' group: <code>sudo usermod -a -G dialout $USER; newgrp dialout</code></li>
+	</ul>
+
+    <h2>Debian/Ubuntu Setup</h2>
+    <ul>
+        <li>Install the required packages: <code>sudo apt install uucp sigrok</code></li>
+        <li>Add yourself to the 'dialout' group: <code>sudo usermod -a -G dialout $USER; newgrp dialout</code></li>
+        <li>Follow the <a href="https://github.com/texane/stlink/blob/master/doc/compiling.md">STLink compilation instructions</a> to build the STLink utilities.</li>
+    </ul>
+
+    <h2>Windows Setup</h2>
+    <ul>
+        <li>Download & install <a href="https://github.com/texane/stlink/releases">STLink</a>.</li>
+        <li>Download the <a href="https://sigrok.org/wiki/Downloads">Pulseview Nightly Installer</a></li>
+    </ul>
+
+	<h2>General Setup</h2>
+	<ol>
+		<li>Create an account on <a href="https://os.mbed.com/compiler/">Mbed</a></li>
+		<li>Add the Nucleo-F103RB board to the online compiler by clicking <a target="_blank" href="https://os.mbed.com/platforms/ST-Nucleo-F103RB/add/">here</a>.
+			Note: This is not the board we are using, but has a microcontroller from the same family.
+		</li>
+		<li>Select the Nucleo-F103RB board from the board selector in the top right of the online compiler. You may need to reload the page for the board to
+			appear.</li>
+		<li>Import the <a href="https://developer.mbed.org/compiler/#import:/users/hudakz/code/STM32F103C8T6_Hello/">STM32F103C8T6 Hello World demo</a></li>
+		<li>Select the STM32F103C8T6_Hello project from the navigation panel on the left, then select "Compile" from the menu. The browser should present you with
+			a '.bin' file to save.</li>
+	</ol>
+	<p><a href="1.Getting Started.html">Next</a></p>
+</body>
+</html>

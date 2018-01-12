@@ -1,0 +1,66 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h1>Getting Started</h1>
+	<p>Check that your hardware kit includes the following components</p>
+	<ol>
+		<li>Breadboard</li>
+		<li>Breadboard jumper cables</li>
+		<li>Breadboard power supply (not used)</li>
+		<li>USB to TTL adapter</li>
+		<li>STLink V2 compatible SWD programmer</li>
+		<li>STM32F103C8T6 development board (axa "Bluepill")</li>
+		<li>MicroUSB cable (not used)</li>
+		<li>24MHz 8 channel USB logic analyser. This is a <a href="http://www.jwandrews.co.uk/2011/12/saleae-logic-analyser-clone-teardown-and-reprogramming/">clone</a>
+			of a Saleae Logic device, but we will be honoring copyright and using open source firmware & software for it
+		</li>
+		<li>Logic analyser test probes (not used)</li>
+		<li>4.7k resistor</li>
+	</ol>
+
+	<h2>Flashing your microcontroller</h2>
+	<ul>
+		<li><span class="floatright"><a href="images/connect_bluepill.jpg"><img style="float: right; clear: right;" src="images/connect_bluepill.jpg"
+					height="85" width="213" /></a></span>Plug the microcontroller into the left of the breadboard, with the programming header pointing left.</li>
+		<li><span class="floatright"><a href="images/connect_swd.jpg"><img style="float: right; clear: right;" src="images/connect_swd.jpg"
+					height="71" width="213" /></a></span> Connect the programming header to your SWD programmer. From top to bottom, the pins on the board are:
+			<ul>
+				<li>3.3V</li>
+				<li>SWDIO</li>
+				<li>SWCLK</li>
+				<li>Gnd</li>
+			</ul> Connect the 4 pins to the matching pins on the programmer, paying attention to the diagram on the programmer to identify the correct pins.</li>
+		<li>Erase the microcontroller: <code>st-flash erase</code></li>
+		<li>Write the Hello World binary you downloaded in the prerequisites to the microcontroller: <code>st-flash write
+				STM32F103C8T6_Hello_NUCLEO_F103RB.bin 0x8000000</code></li>
+		<li>Observe that the LED labelled "PC13" on the board flashes a short flash every 1.2 seconds.</li>
+	</ul>
+
+	<h2>Connecting the serial port</h2>
+	<ul>
+		<li>Unplug the SWD programmer from the computer so that the board is unpowered.</li>
+		<li><span class="floatright"><a href="images/connect_gnd.jpg"><img style="float: right; clear: right;" src="images/connect_gnd.jpg"
+					height="132" width="213" /></a></span>Connect a jumper wire from a G pin on the microcontroller board to the Negative '-' rail on the breadboard.</li>
+		<li><span class="floatright"><a href="images/connect_ttl-1.jpg"><img style="float: right; clear: right;" src="images/connect_ttl-1.jpg"
+					height="149" width="213" /></a></span>Connect the negative rail of the breadboard to 'Gnd' on the serial adapter.</li>
+		<li><span class="floatright"><a href="images/connect_ttl-2.jpg"><img style="float: right; clear: right;" src="images/connect_ttl-2.jpg"
+					height="189" width="213" /></a></span>Connect the 'RX' pin of the serial adapter to pin A2 on the board.</li>
+		<li>Connect the 'TX' pin of the serial adapter to pin A3 on the board.</li>
+		<li>Leave the 3.3V and 5V pins on the adapter disconnected. They can be used for providing power, but for now, we are powering the board from the SWD
+			programmer.</li>
+		<li>Plug the serial adapter into your computer. You can find the serial adapter via <code>dmesg | grep ttyUSB</code>, it will normally be /dev/ttyUSB0.
+		</li>
+		<li>Open a terminal session and connect to the serial port: <code>cu -s 9600 -l /dev/ttyUSB0</code></li>
+		<li>Reconnect the SWD programmer to power the board.</li>
+		<li>You should see the microcontroller report "Blink" on each loop.</li>
+		<li>You can terminate the serial connection by typing '~.'</li>
+	</ul>
+	<br>
+	<p>
+		<a href="2.Logic Analyser.html">Next</a>
+	</p>
+
+</body>
+</html>

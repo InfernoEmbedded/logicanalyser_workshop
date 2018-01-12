@@ -1,0 +1,31 @@
+html {
+    margin: 0;
+    padding: 20;
+    }
+body {
+    font: georgia, sans-serif;
+    line-height: 1.88889;
+    color: #334033;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    }
+p {
+    margin-top: 0;
+    text-align: justify;
+    }
+code {
+	font-size: 120%;
+    color: #603333;
+}
+ol {
+    line-height: 2.0;
+}
+
+th {
+	text-align: left;
+}
+
+table {
+	border: 1px solid black;
+}
