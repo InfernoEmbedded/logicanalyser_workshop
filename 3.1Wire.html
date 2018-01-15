@@ -58,12 +58,18 @@
 		<li>Start an acquisition, and press the "Reset" button on the microcontroller (next to the yellow jumpers) to start a new transaction with the
 			temperature sensor.</li>
 		<li>Follow the recorded transaction along with the <a href="https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf">DS18B20 datasheet</a> and the code
-			to understand what each step of the communication does.
+			to understand what each step of the communication does. You should be able to identify the following:<ul>
+			<li>Reset & Presense pulses.<li>
+			<li>ROM commands & data, SEARCH_ROM & MATCH_ROM.</li>
+			<li>DS18B20 function commands, CONVERT_TEMPERATURE, READ_SCRATCHPAD.</li>
+			<li>The scratchpad contents, and verify that they match what is printed out on the serial port.</li>
+			</ul>
 		</li>
 	</ol>
 
 	<h2>Debugging</h2>
-	<p>Now that you have seen a successful transaction, let's load up some broken code and use the analyser to debug it.</p>
+	<p>Now that you have seen a successful transaction, let's load up some broken code and use the analyser to debug it.<br>
+	Note: Depending on your prior experience, this section may be quite challenging. Go at your own pace, I'll be sticking around afterwards for assistance, or you may contact me via Twitter (@EvilDeece) or email (alastair@d-silva.org).</p>
 	<ol>
 		<li>Import the <a href="https://os.mbed.com/compiler/#import:/users/deece/code/stm32f103c8t6-ds18b20-broken/">broken project</a> into your compiler,
 			compile and upload it. All the bugs are in DS18B20.cpp.

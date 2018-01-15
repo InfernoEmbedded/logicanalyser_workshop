@@ -10,7 +10,7 @@
 		<li>How to use a breadboard for prototyping. If you haven't used a breadboard before, you can read up on how to use them on <a
 			href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard">Adafruit</a>, paying attention to how they are internally wired.
 		</li>
-		<li>An understanding of the 1Wire protocol. If you are not familiar with in, this tutorial provides a good description (flash required):
+		<li>An understanding of the 1Wire protocol. If you are not familiar with it, this tutorial provides a good description (flash required):
 			<a href="https://www.maximintegrated.com/en/products/1-wire/flash/overview/">https://www.maximintegrated.com/en/products/1-wire/flash/overview/</a></li>
 	</ul>
 	<h2>Software Prerequisites</h2>
@@ -38,13 +38,20 @@
     <ul>
         <li>Download & install <a href="https://github.com/texane/stlink/releases">STLink</a>.</li>
         <li>Download the <a href="https://sigrok.org/wiki/Downloads">Pulseview Nightly Installer</a></li>
+        <li>Download & install <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>.
+    </ul>
+
+    <h2>OSX Setup</h2>
+    <ul>
+        <li>Download & install the <a href="https://sigrok.org/wiki/Mac_OS_X">Pulseview Nightly Image</a></li>
+        <li>Download & install <a href="https://github.com/texane/stlink/releases">STLink</a>.</li>
     </ul>
 
 	<h2>General Setup</h2>
 	<ol>
 		<li>Create an account on <a href="https://os.mbed.com/compiler/">Mbed</a></li>
 		<li>Add the Nucleo-F103RB board to the online compiler by clicking <a target="_blank" href="https://os.mbed.com/platforms/ST-Nucleo-F103RB/add/">here</a>.
-			Note: This is not the board we are using, but has a microcontroller from the same family.
+			Note: This is not the board we are using, but has a microcontroller from the same family. The microcontroller we are using differs in that it only has 64kB of flash, rather than 128kB.
 		</li>
 		<li>Select the Nucleo-F103RB board from the board selector in the top right of the online compiler. You may need to reload the page for the board to
 			appear.</li>

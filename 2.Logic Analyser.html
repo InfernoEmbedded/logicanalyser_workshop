@@ -11,22 +11,24 @@
 		<li><span class="floatright"><a href="images/connect_analyser-1.jpg"><img style="float: right; clear: right;" src="images/connect_analyser-1.jpg"
                     height="120" width="213" /></a></span>Open your logic analyser pack and connect the ribbon cable to the channel header. Start at the opposite end of black cable, and connect that to
 			channel 1. Continue on until all 8 channels are connected, then connect the black cable to Gnd.</li>
-		<li>Using jumper wires, connect Gnd to the negative breadboard rail, and channel 1 to pin C13 on the development board (connected internally to the LED
+		<li>Using jumper wires, connect Gnd to the negative breadboard rail, and channel 1 to pin C13 on the development board (pin C13 is connected internally to the LED
 			we are flashing).</li>
 		<li>Connect the mini-USB cable to the logic analyser, and plug it into you computer. If you are short on USB ports, you can disconnect the serial adapter
 			at this time. Reconnect the SWD Programmer to provide power to the board.</li>
 		<li>Launch pulseview: <code>pulseview</code></li>
 		<li><span class="floatright"><a href="images/samplerate.png"><img style="float: right; clear: right;" src="images/samplerate.png"
-                    height="64" width="213" /></a></span>Ensure that the device is set to "Saleae Logic", the number of samples to acquire is set to 100 k samples, and the sample rate is set to 20kHz</li>
+                    height="64" width="213" /></a></span>Ensure that the device is set to "Saleae Logic".</li>
+        <li>Set the number of samples to acquire is set to 100 k samples, and the sample rate is set to 20kHz.</li>
 		<li>In the main window, the traces represent each of the channels of the analyser. D0 is channel 1, D1 is channel 2, and so on. You can rename a channel
 			by clicking on it's tag.</li>
-		<li>You can filter out unused channels by clicking on the red "probe" icon next to the sample selection. In this case, we only have D0 connected, so
+		<li>You can filter out unused channels by clicking on the red "probe" icon in the toolbar next to the sample selection. In this case, we only have D0 connected, so
 			click on the probe, select "Disable All", then click on D0. All the unused channels should now be hidden.</li>
 		<li>Click the "Run" button near the top of the screen.</li>
 		<li>You should now see a trace of the blinking LED. Why is it inverted? Refer to the <a target="_blank"
 			href="https://os.mbed.com/users/hudakz/code/STM32F103C8T6_Hello/">D2 LED in the schematic</a> and read the comments in the hello world code to understand
 			why.
 		</li>
+		<li>Observe that you can use your scroll wheel to zoom in and out (hover the cursor over the area you are interested in to keep that area onscreen). You can also use the horizontal scrollbar on the windows to move the display backwards & forwards in time.</li>
 	</ol>
 
 	<h2>Measurement</h2>
@@ -34,12 +36,12 @@
 	<ol>
 		<li><span class="floatright"><a href="images/measurement.png"><img style="float: right; clear: right;" src="images/measurement.png"
                     height="87" width="213" /></a></span>Click on the "Measurement Calipers" icon from the toolbar, and then drag the left edge to the start of waveform, and the right edge to the start of
-			the next cycle. How long does the low pulse take? What about the high pulse? Refer back to code and verify the times passed to wait_ms(). Can you explain why
+			the next cycle. Write down your measurements for the low going pulse and the high going pulse. Refer back to code and verify the times passed to wait_ms(). Can you explain why
 			one matches and the other doesn't? Let's investigate...</li>
 		<li>We already have edge transitions around the 200ms wait, and we know that is correct, however, the edges around the 1000ms wait also include a
 			printf(). Let's add some edges around that so we can time it.</li>
 		<li>In the code, declare a new DigitalOut pin: <code>DigitalOut tracer(PC_14);</code></li>
-		<li>Add a low going pulse around the printf() call:<br> <code>
+		<li>Add a low going pulse around the existing printf() call:<br> <code>
 				tracer = 0;<br> pc.printf("Blink\r\n");<br> tracer = 1;
 			</code>
 		<li>Compile and upload your code. You may want to save the binary with a different name.</li>
@@ -55,6 +57,7 @@
 		hoping to hit the event you are interested in. Triggers in Pulseview can be set on absolute levels or edge transitions. When combined with the tracer signals
 		we added in the Measurement exercise, you can quickly narrow your scope of analysis to just the area you interested in.</p>
 	<ol>
+	    <li>Re-enable the printf() call & tracers, then compile & upload to the development board.</li>
 		<li>Click on the tag for Channel 2/D1.</li>
 		<li>Select the transition from high to low as the trigger.</li>
 		<li>Click the "Run" button again to acquire new data.</li>
@@ -76,7 +79,7 @@
 		<li><span class="floatright"><a href="images/stack decoder.png"><img style="float: right; clear: right;" src="images/stack decoder.png"
                     height="97" width="213" /></a></span>Click on the Stack Decoder icon to the right of the sample rate. Select the PWM stack decoder.</li>
 		<li>Click on the newly created PWM channel to configure it: Set the Data line to Channel 1/D0, and the polarity to "active low"</li>
-		<li>Observe that the PWM channel shows the duty cycle & period of the waveform.</li>
+		<li>Observe that the PWM channel shows the duty cycle & period of the waveform. The "duty cycle" of the waveform indicates the ratio of it being active vs inactive, while the period tells us how long it takes to repeat.</li>
 		<li>Play around with the timing in the code to see how it affects the PWM data.</li>
 	</ol>
 

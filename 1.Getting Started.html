@@ -32,6 +32,7 @@
 				<li>SWCLK</li>
 				<li>Gnd</li>
 			</ul> Connect the 4 pins to the matching pins on the programmer, paying attention to the diagram on the programmer to identify the correct pins.</li>
+		<li>Plug the SWD programmer into your USB port</li>
 		<li>Erase the microcontroller: <code>st-flash erase</code></li>
 		<li>Write the Hello World binary you downloaded in the prerequisites to the microcontroller: <code>st-flash write
 				STM32F103C8T6_Hello_NUCLEO_F103RB.bin 0x8000000</code></li>
@@ -46,13 +47,15 @@
 		<li><span class="floatright"><a href="images/connect_ttl-1.jpg"><img style="float: right; clear: right;" src="images/connect_ttl-1.jpg"
 					height="149" width="213" /></a></span>Connect the negative rail of the breadboard to 'Gnd' on the serial adapter.</li>
 		<li><span class="floatright"><a href="images/connect_ttl-2.jpg"><img style="float: right; clear: right;" src="images/connect_ttl-2.jpg"
-					height="189" width="213" /></a></span>Connect the 'RX' pin of the serial adapter to pin A2 on the board.</li>
+					height="189" width="213" /></a></span>Connect the 'RX' pin of the serial adapter to pin A2 on the board. Pin A2 will be on the bottom edge, near the middle of the pin header.</li>
 		<li>Connect the 'TX' pin of the serial adapter to pin A3 on the board.</li>
 		<li>Leave the 3.3V and 5V pins on the adapter disconnected. They can be used for providing power, but for now, we are powering the board from the SWD
 			programmer.</li>
 		<li>Plug the serial adapter into your computer. You can find the serial adapter via <code>dmesg | grep ttyUSB</code>, it will normally be /dev/ttyUSB0.
 		</li>
-		<li>Open a terminal session and connect to the serial port: <code>cu -s 9600 -l /dev/ttyUSB0</code></li>
+		<li>Open a terminal session and connect to the serial port:<br>
+		  Linux/OSX: <code>cu -s 9600 -l /dev/ttyUSB0</code>
+		  Windows: Use Putty to open a 9600 baud serial connection.</li>
 		<li>Reconnect the SWD programmer to power the board.</li>
 		<li>You should see the microcontroller report "Blink" on each loop.</li>
 		<li>You can terminate the serial connection by typing '~.'</li>
