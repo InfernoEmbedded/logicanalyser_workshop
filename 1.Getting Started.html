@@ -54,11 +54,12 @@
 		<li>Plug the serial adapter into your computer. You can find the serial adapter via <code>dmesg | grep ttyUSB</code>, it will normally be /dev/ttyUSB0.
 		</li>
 		<li>Open a terminal session and connect to the serial port:<br>
-		  Linux/OSX: <code>cu -s 9600 -l /dev/ttyUSB0</code>
+		  Linux: <code>screen /dev/ttyUSB0 9600</code><br>
+		  OSX: <code>screen /dev/tty.SLAB_USBtoUART 9600</code><br>
 		  Windows: Use Putty to open a 9600 baud serial connection.</li>
 		<li>Reconnect the SWD programmer to power the board.</li>
 		<li>You should see the microcontroller report "Blink" on each loop.</li>
-		<li>You can terminate the serial connection by typing '~.'</li>
+		<li>You can terminate the serial connection by typing <code>Ctrl-A k y</code></li>
 	</ul>
 	<br>
 	<p>
