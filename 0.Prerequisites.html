@@ -47,6 +47,10 @@
         <li>Download &amp; install the <a href="https://sigrok.org/wiki/Mac_OS_X">Pulseview Nightly Image</a></li>
         <li>Download &amp; install <a href="https://github.com/texane/stlink/releases">STLink</a>.</li>
 	<li>Download &amp; install <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">Silicon Image CP2102 driver</a>.</li>
+	    <li>Open a terminal, then run: <code>sudo kextload /Library/Extensions/SiLabsUSBDriver.kext</code>   You should get a security error.</li>
+	    <li>Open <em>System Preferences</em>, <em>Security &amp; Privacy</em>, <em>General</em>.  Click <em>Unlock</em> at the bottom of the screen and enter an administrator's password. There should be a warning near the bottom saying Silicon Image drivers were blocked loading.  Click <em>Allow</em>.</li>
+	    <li>Go back to the terminal, and try to kextload again.  You should get no output.</li>
+	    <li>There should be a device called <code>/dev/tty.SLAB_USBtoUART</code>.</li>
     </ul>
 
 	<h2>General Setup</h2>
