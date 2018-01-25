@@ -1,0 +1,137 @@
+.TH PULSEVIEW 1 "June 6, 2017"
+.SH "NAME"
+PulseView \- Qt-based LA/scope/MSO GUI for sigrok
+.SH "SYNOPSIS"
+.B pulseview \fR[\fBOPTIONS\fR] [\fBFILE\fR]
+.SH "DESCRIPTION"
+.B PulseView
+is a cross-platform Qt-based GUI for the
+.B sigrok
+software suite for test and measurement equipment such as logic analyzers,
+oscilloscopes, MSOs, and more.
+.SH "OPTIONS"
+.B PulseView
+has very few command line options, as most configuration elements are
+available from the GUI itself.
+.sp
+If the optional \fBFILE\fR argument is supplied, PulseView tries to open
+the specified file. It has to be in the "libsigrok session" format (.sr)
+unless -I is used to specify the input file format.
+.TP
+.B "\-l, \-\-loglevel"
+Set the libsigrok and libsigrokdecode loglevel. At the moment PulseView
+doesn't support setting the two loglevels independently. The higher the
+number, the more debug output will be printed. Valid loglevels are:
+.sp
+\fB0\fP   None
+.br
+\fB1\fP   Error
+.br
+\fB2\fP   Warnings
+.br
+\fB3\fP   Informational
+.br
+\fB4\fP   Debug
+.br
+\fB5\fP   Spew
+.TP
+.B "\-h, \-?, \-\-help"
+Show a help text and exit.
+.TP
+.B "\-V, \-\-version"
+Show version information and exit.
+.TP
+.BR "\-d, \-\-driver " <drivername>
+Specify the capture device to connect to. If the
+.B \-\-driver
+option is not supplied, PulseView attempts to re-connect to the
+most recently used device, or auto-detect available devices.
+.TP
+.BR "\-i, \-\-input\-file " <filename>
+Load input from a file. If the
+.B \-\-input\-format
+option is not supplied, PulseView attempts to load the file as a sigrok session
+file.
+.TP
+.BR "\-I, \-\-input\-format " <format>
+Specifies the format of the input file to be loaded.
+.TP
+.BR "\-c, \-\-clean"
+Prevents the previously used sessions to be restored from settings storage.
+This is useful if you want only a single session with the file given on the
+command line instead of restoring all previously used sessions as well.
+.SH "KEYBOARD SHORTCUTS"
+.TP
+.B "f"
+Zoom-to-fit.
+.TP
+.B "o"
+Zoom 1:1.
+.TP
+.B "s"
+Enable / disable sticky scrolling. When enabled, the right edge of the screen
+always shows the most recently captured data.
+.TP
+.B "."
+Show / hide sampling points.
+.TP
+.B "g"
+Show / hide analog minor grid (in addition to the vdiv grid).
+.TP
+.B "c"
+Show / hide cursors.
+.TP
+.B "b"
+Toggle between coloured trace backgrounds and alternating light/dark
+gray trace backgrounds.
+.TP
+.B "SPACE"
+Start / stop an acquisition.
+.TP
+.B "Arrow keys"
+Scroll up/down/left/right.
+.TP
+.B "CTRL+o"
+Open file.
+.TP
+.B "CTRL+s"
+Save as...
+.TP
+.B "CTRL+r"
+Save selected range as...
+.TP
+.B "CTRL+g"
+Group all currently selected traces into a trace group.
+.TP
+.B "CTRL+u"
+Ungroup the traces in the currently selected trace group.
+.TP
+.B "CTRL++"
+Zoom in.
+.TP
+.B "CTRL+-"
+Zoom out.
+.TP
+.B "CTRL+q"
+Quit, i.e. shutdown PulseView (closing all session tabs).
+.TP
+.B "CTRL+w"
+Close the current session tab.
+.SH "EXIT STATUS"
+.B PulseView
+exits with 0 on success, 1 on most failures.
+.SH "SEE ALSO"
+\fBsigrok\-cli\fP(1)
+.SH "BUGS"
+Please report any bugs via Bugzilla
+.RB "(" http://sigrok.org/bugzilla ")"
+or on the sigrok\-devel mailing list
+.RB "(" sigrok\-devel@lists.souceforge.net ")."
+.SH "LICENSE"
+.B PulseView
+is covered by the GNU General Public License (GPL), version 3 or later.
+.SH "AUTHORS"
+Please see the individual source code files.
+.PP
+This manual page was written by Uwe Hermann <uwe@hermann\-uwe.de>.
+It is licensed under the terms of the GNU GPL (version 2 or later).

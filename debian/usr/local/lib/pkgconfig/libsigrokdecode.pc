@@ -1,0 +1,18 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+pkgdatadir=${datadir}/libsigrokdecode
+decodersdir=${pkgdatadir}/decoders
+
+Name: libsigrokdecode
+Description: Protocol decoder library of the sigrok logic analyzer software
+URL: http://www.sigrok.org
+Requires: glib-2.0
+Requires.private: python3 >= 3.2
+Version: 0.6.0-git-96434ac
+Libs: -L${libdir} -lsigrokdecode
+Libs.private: -lm
+Cflags: -I${includedir}
